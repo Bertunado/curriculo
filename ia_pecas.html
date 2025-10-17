@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto: IA Preditiva para Vida Útil de Peças | Bernardo Viana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: white;
+        }
+        .vibrant-purple {
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+        }
+        .glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .tech-badge {
+            background-color: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        /* Estilos para a galeria */
+        .gallery-container {
+            overflow: hidden; /* Esconde as imagens que não estão na tela */
+        }
+        .slides-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Animação de slide */
+        }
+        .slide {
+            flex-shrink: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 bg-black bg-opacity-90 shadow-lg py-4">
+        <div class="container mx-auto px-4">
+             <a href="curriculo.html" class="text-lg font-semibold text-white hover:text-purple-400 transition">
+                &larr; Voltar ao Portfólio
+            </a>
+        </div>
+    </nav>
+
+    <header class="vibrant-purple glow text-center py-16">
+        <h1 class="text-5xl font-bold mb-2">Análise Preditiva de Vida Útil de Peças</h1>
+        <p class="text-xl">Utilizando Inteligência Artificial para otimizar a manutenção industrial.</p>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <div class="card max-w-4xl mx-auto">
+            
+            <div class="relative w-full mb-8">
+                <div class="gallery-container rounded-lg border-2 border-purple-500">
+                    <div class="slides-container" id="slides">
+                        <div class="slide">
+                            <img src="projetoIA.png" alt="Print da tela 1 do Projeto de IA" class="w-full h-auto object-cover">
+                        </div>
+                        <div class="slide">
+                            <img src="vida_amarela.png" alt="Print da tela 2 do Projeto de IA" class="w-full h-auto object-cover">
+                        </div>
+                        <div class="slide">
+                            <img src="vida_vermelha.png" alt="Print da tela 3 do Projeto de IA" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="prevBtn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">
+                    &#10094;
+                </button>
+                <button id="nextBtn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition">
+                    &#10095;
+                </button>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-4">Visão Geral do Projeto</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                Este projeto de Machine Learning foi desenvolvido para prever a vida útil de componentes industriais com base em dados históricos de operação e falhas. O objetivo principal é otimizar os ciclos de manutenção, substituindo a abordagem reativa (corrigir após a falha) por uma estratégia preditiva, o que resulta na redução de custos e aumento da eficiência operacional.
+            </p>
+
+            <h2 class="text-3xl font-bold mb-4">Funcionalidades e Etapas</h2>
+            <ul class="list-disc list-inside space-y-2 mb-6 text-lg">
+                <li><strong>Análise Exploratória de Dados:</strong> Tratamento e visualização dos dados para identificar padrões e correlações.</li>
+                <li><strong>Engenharia de Features:</strong> Criação de variáveis relevantes para treinar o modelo de Machine Learning.</li>
+                <li><strong>Treinamento do Modelo:</strong> Implementação e treinamento de um modelo de classificação para prever a probabilidade de falha.</li>
+                <li><strong>Validação e Métricas:</strong> Avaliação da performance do modelo utilizando métricas como acurácia, precisão e recall.</li>
+                <li><strong>Interface de Simulação:</strong> Desenvolvimento de uma interface simples para que o usuário pudesse inserir dados e receber a previsão de vida útil.</li>
+            </ul>
+
+            <h2 class="text-3xl font-bold mb-4">Tecnologias Utilizadas</h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Pandas</span>
+                <span class="tech-badge">Scikit-learn</span>
+                <span class="tech-badge">Matplotlib / Seaborn</span>
+                <span class="tech-badge">Jupyter Notebook</span>
+                <span class="tech-badge">Flask (para a interface)</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const slides = document.getElementById('slides');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const totalSlides = slides.children.length;
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const newTransform = -index * 100;
+            slides.style.transform = `translateX(${newTransform}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        });
+
+        // Inicia no primeiro slide
+        showSlide(currentIndex);
+    </script>
+
+</body>
+</html>
