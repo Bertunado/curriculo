@@ -32,6 +32,20 @@ knowledge_base = """
 - Comida: Pão de queijo, strogonoff, lasanha
 - Hobbies: Gosto de games de estratégia, de assistir filmes e treinar na academia.
 - Filme favorito: Batman: O cavaleiro das trevas
+- Animais: Gosto muito de tigres e gatos
+- Estimação: Tenho apenas um cachorro
+- Musica: Gosto de Bring me To Life - Evanescence
+- Genero musical: eletronica, pop, rock
+- Jogo favorito: League of Legends
+- Cor favorita: Verde e preto
+- Bebida: Café e água
+- Superpoder: Voar
+- Viajar: Gostaria de conhecer o Japão e finlandia
+- Time de futebol: Internacional
+- Sonho: Trabalhar com algo de gosto e ser feliz com o que conquistei na vida
+- Personalidade: Sou mais analítico
+- Medo: Altura
+
 
 --- RESUMO E OBJETIVOS ---
 - Resumo: Sou um desenvolvedor dedicado e apaixonado por tecnologia, com experiência prática em automação de sistemas adquirida na Whirlpool[cite: 4]. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas e possuo uma sólida base técnica em Ciência de Dados, com foco em lógica de programação e visualização de dados[cite: 5].
@@ -39,7 +53,7 @@ knowledge_base = """
 
 --- EXPERIÊNCIA PROFISSIONAL ---
 - Empresa: Whirlpool
-- Cargo: Jovem Aprendiz em Automação de Sistemas (Desde Fev/2025) [cite: 11]
+- Cargo: Jovem Aprendiz em Automação de Sistemas (Desde Fev/2025)
 - Responsabilidades e Conquistas: 
   - Responsável pela implementação de técnicas e scripts para automação de processos.
   - [Adicione aqui um exemplo de conquista ou resultado, como: "Desenvolvi um script que reduziu o tempo de uma tarefa específica em X%."]
@@ -64,18 +78,22 @@ knowledge_base = """
 
 --- PROJETOS DESTACADOS ---
 1. Sistema de Estoque:
+   - Quarto: Meu quarto projeto
    - Descrição: Aplicação web em Django para controle de inventário.
    - Desafio: [Descreva o principal desafio que você enfrentou, ex: "Estruturar o banco de dados de forma relacional para garantir a integridade dos dados."]
    - Aprendizado: [O que você aprendeu, ex: "Aprendi sobre o ORM do Django e como realizar o deploy de uma aplicação web no PythonAnywhere."]
 2. IA Preditiva de Vida Útil:
+   - Segundo: Meu segundo projeto
    - Descrição: Modelo de Machine Learning para prever a vida útil de peças.
    - Desafio: [Ex: "Realizar o pré-processamento e a limpeza de um grande volume de dados brutos."]
    - Aprendizado: [Ex: "Aprofundei meus conhecimentos em validação de modelos e na biblioteca Scikit-learn."]
 3. Robô de Criptomoeda:
+   - Terceiro: Meu terceiro projeto
    - Descrição: Bot de 'scalping' que opera na API da Binance.
    - Desafio: [Ex: "Lidar com a comunicação em tempo real via websockets e garantir a execução rápida das ordens."]
    - Aprendizado: [Ex: "Ganhei experiência prática com a integração de APIs de terceiros (CCXT) e automação de tarefas."]
 4. Visão de Máquinas da Fábrica:
+   - Primeiro: Foi meu primeiro projeto
    - Descrição: Sistema interativo em Django com login administrativo para gestão de peças.
    - Desafio: [Ex: "Implementar o sistema de autenticação e permissões do Django para diferenciar usuários comuns de administradores."]
    - Aprendizado: [Ex: "Foi meu primeiro projeto completo com Django, onde solidifiquei os conceitos de models, views e templates."]
