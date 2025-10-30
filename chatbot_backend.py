@@ -9,7 +9,7 @@ CORS(app)  # Permite que seu frontend acesse este backend
 
 # Cole sua Chave de API aqui
 # (Para mais segurança, o ideal é usar variáveis de ambiente)
-API_KEY = 'AIzaSyBX2bsCxOmdczDf-HffePxv6KG3EZIhDFE' 
+API_KEY = 'CHAVE API' 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('models/gemini-2.5-pro')
 
