@@ -3,19 +3,15 @@ import google.generativeai as genai
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-# --- CONFIGURAÇÃO INICIAL ---
 app = Flask(__name__)
 CORS(app)  # Permite que seu frontend acesse este backend
 
-# Cole sua Chave de API aqui
-# (Para mais segurança, o ideal é usar variáveis de ambiente)
 API_KEY = 'CHAVE API' 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('models/gemini-2.5-pro')
 
 
 # --- BASE DE CONHECIMENTO ---
-# Todas as informações sobre você que a IA vai usar
 knowledge_base = """
 --- DADOS PESSOAIS ---
 - Nome: Bernardo dos Santos Viana
@@ -80,34 +76,29 @@ knowledge_base = """
 1. Sistema de Estoque:
    - Quarto: Meu quarto projeto
    - Descrição: Aplicação web em Django para controle de inventário.
-   - Desafio: [Descreva o principal desafio que você enfrentou, ex: "Estruturar o banco de dados de forma relacional para garantir a integridade dos dados."]
-   - Aprendizado: [O que você aprendeu, ex: "Aprendi sobre o ORM do Django e como realizar o deploy de uma aplicação web no PythonAnywhere."]
+   - Desafio: Estruturar o banco de dados de forma relacional para garantir a integridade dos dados
+   - Aprendizado: Aprendi sobre o ORM do Django e como realizar o deploy de uma aplicação web no PythonAnywhere
 2. IA Preditiva de Vida Útil:
    - Segundo: Meu segundo projeto
    - Descrição: Modelo de Machine Learning para prever a vida útil de peças.
-   - Desafio: [Ex: "Realizar o pré-processamento e a limpeza de um grande volume de dados brutos."]
-   - Aprendizado: [Ex: "Aprofundei meus conhecimentos em validação de modelos e na biblioteca Scikit-learn."]
+   - Desafio: Realizar o pré-processamento e a limpeza de um grande volume de dados brutos
+   - Aprendizado: Aprofundei meus conhecimentos em validação de modelos e na biblioteca Scikit-learn
 3. Robô de Criptomoeda:
    - Terceiro: Meu terceiro projeto
    - Descrição: Bot de 'scalping' que opera na API da Binance.
-   - Desafio: [Ex: "Lidar com a comunicação em tempo real via websockets e garantir a execução rápida das ordens."]
-   - Aprendizado: [Ex: "Ganhei experiência prática com a integração de APIs de terceiros (CCXT) e automação de tarefas."]
+   - Desafio: Lidar com a comunicação em tempo real via websockets e garantir a execução rápida das ordens
+   - Aprendizado: Ganhei experiência prática com a integração de APIs de terceiros (CCXT) e automação de tarefas
 4. Visão de Máquinas da Fábrica:
    - Primeiro: Foi meu primeiro projeto
    - Descrição: Sistema interativo em Django com login administrativo para gestão de peças.
-   - Desafio: [Ex: "Implementar o sistema de autenticação e permissões do Django para diferenciar usuários comuns de administradores."]
-   - Aprendizado: [Ex: "Foi meu primeiro projeto completo com Django, onde solidifiquei os conceitos de models, views e templates."]
+   - Desafio: Implementar o sistema de autenticação e permissões do Django para diferenciar usuários comuns de administradores
+   - Aprendizado: Foi meu primeiro projeto completo com Django, onde solidifiquei os conceitos de models, views e templates
 """
 
-
-
-# --- ROTA DA API ---
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
         user_question = request.json['question']
-
-        # Montando o prompt para a IA
         prompt = f"""
         Você é o assistente virtual de Bernardo Viana, um desenvolvedor. Sua função é responder perguntas de recrutadores de forma profissional e amigável, com base nas informações fornecidas abaixo. Não invente informações. Se a pergunta não puder ser respondida com os dados abaixo, diga que você não tem essa informação.
 
@@ -122,7 +113,6 @@ def chat():
 
         response = model.generate_content(prompt)
         
-        # Adicionando um pequeno delay para a resposta parecer mais natural
         import time
         time.sleep(1)
 
@@ -132,6 +122,5 @@ def chat():
         print(f"Erro: {e}")
         return jsonify({'error': 'Ocorreu um erro ao processar sua pergunta.'}), 500
 
-# --- INICIAR O SERVIDOR ---
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
