@@ -1,7 +1,6 @@
 import google.generativeai as genai
 
-# COLE SUA CHAVE DE API AQUI NOVAMENTE
-API_KEY = 'AIzaSyBX2bsCxOmdczDf-HffePxv6KG3EZIhDFE' 
+API_KEY = 'CHAVE API' 
 
 try:
     genai.configure(api_key=API_KEY)
@@ -11,7 +10,6 @@ try:
 
     found_model = False
     for m in genai.list_models():
-      # Vamos verificar quais modelos suportam a geração de conteúdo (chat)
       if 'generateContent' in m.supported_generation_methods:
         print(f"Modelo encontrado: {m.name}")
         found_model = True
