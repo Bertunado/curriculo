@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Permite que seu frontend acesse este backend
+CORS(app)
 
 API_KEY = 'CHAVE API' 
 genai.configure(api_key=API_KEY)
@@ -44,7 +44,7 @@ knowledge_base = """
 
 
 --- RESUMO E OBJETIVOS ---
-- Resumo: Sou um desenvolvedor dedicado e apaixonado por tecnologia, com experiência prática em automação de sistemas adquirida na Whirlpool[cite: 4]. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas e possuo uma sólida base técnica em Ciência de Dados, com foco em lógica de programação e visualização de dados[cite: 5].
+- Resumo: Sou um desenvolvedor dedicado e apaixonado por tecnologia, com experiência prática em automação de sistemas adquirida na Whirlpool[cite: 4]. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas e possuo uma sólida base técnica em Ciência de Dados, com foco em lógica de programação e visualização de dados
 - Objetivo de Carreira: Busco uma oportunidade desafiadora, como Desenvolvedor Júnior ou Estagiário, para aplicar e expandir minhas habilidades em desenvolvimento backend com Python e Django. Tenho grande interesse em projetos de automação, desenvolvimento web e soluções orientadas a dados.
 
 --- EXPERIÊNCIA PROFISSIONAL ---
@@ -52,13 +52,12 @@ knowledge_base = """
 - Cargo: Jovem Aprendiz em Automação de Sistemas (Desde Fev/2025)
 - Responsabilidades e Conquistas: 
   - Responsável pela implementação de técnicas e scripts para automação de processos.
-  - [Adicione aqui um exemplo de conquista ou resultado, como: "Desenvolvi um script que reduziu o tempo de uma tarefa específica em X%."]
   - Contribuí para a melhoria da eficiência e eficácia dos fluxos de trabalho da equipe.
 
 --- FORMAÇÃO ACADÊMICA ---
-- Graduação: Análise e Desenvolvimento de Sistemas na Unisociesc (Cursando desde Jun/2024)[cite: 13, 14, 15].
-- Técnico: Ciência de Dados na instituição Holando Marcellino Gonçalves (Concluído em Dez/2023), com ênfase em lógica de programação, transformação digital e visualização de dados[cite: 16, 17, 20].
-- Profissionalizante: Programador de Sistemas no Senai (Cursando desde Fev/2025)[cite: 21, 23, 24].
+- Graduação: Análise e Desenvolvimento de Sistemas na Unisociesc (Cursando desde Jun/2024)
+- Técnico: Ciência de Dados na instituição Holando Marcellino Gonçalves (Concluído em Dez/2023), com ênfase em lógica de programação, transformação digital e visualização de dados
+- Profissionalizante: Programador de Sistemas no Senai (Cursando desde Fev/2025)
 
 --- HABILIDADES TÉCNICAS (HARD SKILLS) ---
 - Linguagens de Programação: Python, SQL.
@@ -68,9 +67,9 @@ knowledge_base = """
 - Conceitos: Automação de Sistemas, Estrutura de Dados, Machine Learning, Desenvolvimento Web.
 
 --- COMPETÊNCIAS (SOFT SKILLS) ---
-- Pensamento Criativo: Habilidade para encontrar soluções inovadoras para problemas complexos[cite: 33].
-- Trabalho em Equipe: Experiência em colaborar efetivamente com equipes de desenvolvimento para atingir objetivos comuns[cite: 36].
-- Ética Profissional: Comprometido com a entrega de trabalho de alta qualidade e com a manutenção de um ambiente profissional íntegro[cite: 37].
+- Pensamento Criativo: Habilidade para encontrar soluções inovadoras para problemas complexos
+- Trabalho em Equipe: Experiência em colaborar efetivamente com equipes de desenvolvimento para atingir objetivos comuns
+- Ética Profissional: Comprometido com a entrega de trabalho de alta qualidade e com a manutenção de um ambiente profissional íntegro
 
 --- PROJETOS DESTACADOS ---
 1. Sistema de Estoque:
