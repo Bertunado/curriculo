@@ -10,7 +10,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-            scroll-behavior: smooth; /* Para rolagem suave do navbar */
+            scroll-behavior: smooth;
         }
         .vibrant-purple {
             background: linear-gradient(45deg, #8b5cf6, #a855f7);
@@ -18,7 +18,7 @@
         .glow {
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
         }
-        .fade-item { /* Novo nome para a classe para não conflitar com .fade-in nos cards */
+        .fade-item {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
@@ -43,12 +43,10 @@
             display: inline-block;
             width: 2px; /* Largura da barra */
             height: 16px; /* Altura da barra */
-            background: linear-gradient(45deg, #8b5cf6, #a855f7); /* Cor da barra roxa */
-            margin: 0 16px; /* Espaçamento ao redor da barra */
+            background: linear-gradient(45deg, #8b5cf6, #a855f7); 
+            margin: 0 16px; 
             vertical-align: middle;
         }
-
-        /* Estilos para o chatbot - apenas um placeholder visual */
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -320,13 +318,12 @@
     </div>
 
     <script>
-        // Observe as seções para a animação fade-in
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 } else {
-                    entry.target.classList.remove('visible'); // Remove ao sair da tela
+                    entry.target.classList.remove('visible');
                 }
             });
         }, { threshold: 0.1 }); // Ajuste o threshold conforme necessário
@@ -335,7 +332,6 @@
             sectionObserver.observe(el);
         });
 
-        // Observe os cards individualmente para a animação de aparecer/desaparecer
         const cardObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const card = entry.target;
@@ -345,15 +341,13 @@
                     card.classList.remove('visible');
                 }
             });
-        }, { threshold: 0.2 }); // Threshold menor para os cards reagirem mais rapidamente
+        }, { threshold: 0.2 });
 
-        // Seleciona todos os cards dentro das seções de experiência, educação e portfólio
         document.querySelectorAll('#experience .card, #education .card, #portfolio .card').forEach(card => {
             card.classList.add('fade-item'); // Garante que eles tenham a classe de animação
             cardObserver.observe(card);
         });
-
-        // Inicializa a visibilidade das seções ao carregar a página para as que já estão na tela
+        
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.fade-item').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight && el.getBoundingClientRect().bottom > 0) {
@@ -368,12 +362,10 @@
         const chatInput = document.getElementById('chat-input');
         const chatSendBtn = document.getElementById('chat-send-btn');
 
-    // Abre/Fecha a janela do chat
         chatbotIcon.addEventListener('click', () => {
             chatWindow.classList.toggle('open');
         });
 
-    // Lógica para enviar mensagem
     async function sendMessage() {
         const question = chatInput.value.trim();
         if (question === '') return;
@@ -381,11 +373,9 @@
         appendMessage(question, 'user-message');
         chatInput.value = '';
         
-        // Mostra um indicador de "digitando..."
         const thinkingMessage = appendMessage('Pensando...', 'bot-message');
         
         try {
-            // Comunica com o backend
             const response = await fetch('http://127.0.0.1:5000/chat', {
                 method: 'POST',
                 headers: {
@@ -400,7 +390,6 @@
 
             const data = await response.json();
             
-            // Atualiza a mensagem de "Pensando..." com a resposta real da IA
             thinkingMessage.innerText = data.response;
 
         } catch (error) {
@@ -414,8 +403,6 @@
             sendMessage();
         }
     });
-
-    // Adiciona uma mensagem na tela e retorna o elemento da mensagem
     function appendMessage(text, className) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', className);
